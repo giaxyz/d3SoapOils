@@ -1,0 +1,87 @@
+html, html a {
+    -webkit-font-smoothing: antialiased !important;
+    text-rendering: optimizeLegibility !important;
+
+}
+
+body{
+    font-size : 100%; /*Base font is 14px*/
+    font-family: Georgia, serif;
+    line-height: 1.0;
+    text-align: left;
+    margin : 0 auto;
+
+
+}
+
+a{
+    text-decoration: none;
+}
+
+.mainContent{
+    margin-top : 2%;
+    margin-left : 2%;
+    margin-right : 2%;
+
+
+ }
+
+.mainHeader{
+    margin-top : 2%;
+    background-color: #c4c4c4;
+    padding: 30px;
+
+}
+
+
+.mainFooter{
+    text-align:center;
+    font-size:10px;
+    margin-top:5%;
+    width:100%;
+    float:left;
+}
+
+.oilChartMain{
+    padding: 30px;
+    margin-top:10px;
+    margin-bottom:10px;
+    height:100%;
+}
+
+.oilGraphicAndLegend{
+
+}
+
+
+.oilChartGraphic{
+
+    background-color: rgba(255, 89, 240, 0);
+    width:70%;
+    float:left;
+
+
+}
+
+
+.oilChartLegend{
+
+    background-color: rgba(255, 145, 38, 0);
+    float:right;
+    width:30%;
+
+
+}
+
+
+.oilChartAnnotation{
+
+    background-color: rgba(97, 79, 255, 0);
+    float:left;
+    width:100%;
+    margin-bottom: 50px;
+
+}
+
+
+

@@ -1,0 +1,126 @@
+html, html a {
+    -webkit-font-smoothing: antialiased !important;
+    text-rendering: optimizeLegibility !important;
+
+}
+
+body{
+    font-size : 100%; /*Base font is 14px*/
+    font-family: Georgia, serif;
+    line-height: 1.5;
+    text-align: left;
+}
+
+a{
+    text-decoration: none;
+}
+
+.body{
+    background-color: #ffffff;
+    margin : 0 auto;
+    width: 80%;
+    clear:both;
+}
+
+.mainHeader{
+    margin-top : 2%;
+
+}
+
+
+.titleInfo{
+    background-color: #fcfcfc;
+    border-radius: 5px;
+    border-width : 1px;
+    border-style: solid;
+    border-color: #dddddd;
+    height:120px;
+    margin:0px;
+    margin-bottom : 10px;
+    padding-top : 20px;
+    padding-bottom : 20px;
+    padding-right:30px;
+    padding-left:30px;
+}
+
+
+.mainContent{
+    margin-top:0px;
+    float:left;
+    line-height: 25px;
+    border-radius: 5px;
+    -moz-border-radius: 5px;
+    -webkit-border-radius: 5px;
+    /*overflow:hidden; have to get rid of this to get the sidebars to work*/
+}
+
+
+.content{
+    width:100%;
+    float:left;
+    border-radius: 5px;
+    -moz-border-radius: 5px;
+    -webkit-border-radius: 5px;
+    text-align: justify;
+    text-justify: inter-word;
+}
+
+.soapArticle{
+    background-color: #f7f7f7;
+    float:left;
+    border-radius: 5px;
+    border-width : 1px;
+    border-style: solid;
+    border-color: #dddddd;
+    -moz-border-radius: 5px;
+    -webkit-border-radius: 5px;
+    margin-top: 5px;
+    margin-bottom:30px;
+    padding-right:30px;
+    padding-left:30px;
+    padding-top:20px;
+    padding-bottom:40px;
+}
+
+.soapArticle p{
+    width:100%;
+    margin :0 auto;
+    color: #61169c;
+    font-size:11px;
+    line-height: 20px;
+
+}
+
+
+.chart{
+    width:80%;
+    font-size:12px;
+    line-height:15px;
+    float:left;
+}
+
+.legend{
+    width:15%;
+    font-size:12px;
+    line-height:15px;
+    float:right;
+    height:100%;
+
+}
+
+.visualization{
+    background-color: #ffffff;
+    padding:20px;
+}
+
+.chart article p{
+    padding-top:30px;
+}
+
+.mainFooter{
+
+    padding-top: 300px;
+    text-align: center;
+    font-size:10px;
+
+}
