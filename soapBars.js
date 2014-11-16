@@ -5,9 +5,10 @@
 function makeBarChart(divId, dataset){
 
     //Width and height
-    var w = 300;
+
+
+    var w = 600; // is actually height
     var h = 300;
-    //console.log(w)
 
     //Set up stack method and pass the dataset on to it, -- stack expects a dataset matrix
     var stack = d3.layout.stack();
@@ -18,7 +19,7 @@ function makeBarChart(divId, dataset){
     //Create SVG element
     var canvas = d3.select(divId)
         .append("svg")
-        .attr("width", w)
+        .attr("width", w )
         .attr("height", h);
 
 
@@ -37,10 +38,12 @@ function makeBarChart(divId, dataset){
         });
 
 
+
+
     //Set up scales
     var xScale = d3.scale.ordinal()
         .domain(d3.range(dataset[0].length))
-        .rangeRoundBands([0, w-100], 0.1);  // interval, padding, outer padding
+        .rangeRoundBands([0, h-100], 0.1);  // interval, padding, outer padding
 
     var yScale = d3.scale.linear()
         .domain([0,
@@ -50,7 +53,8 @@ function makeBarChart(divId, dataset){
                 });
             })
         ])
-        .range([0, h]);
+        .range([0, h]); ///*************************8
+
 
 
     // Add a rect for each data value
@@ -59,15 +63,16 @@ function makeBarChart(divId, dataset){
         .enter()
         .append("rect")
         .attr("y", function(d, i) {
-            return xScale(i);
-        })
-        .attr("x", function(d) {
-            return yScale(d.y0);
+            return i * 40;  // shuffle up and down
         })
         .attr("width", function(d) {
-            return yScale(d.y);
+            return yScale(d.y); // the top of the bars ///**************************8
         })
-        .attr("height", xScale.rangeBand());
+        .attr("x", function(d) {
+            return yScale(d.y0); // the bottom of the bars (x, but rotated)
+        })
+        .attr("height", xScale.rangeBand()) // this is the width of the bars
+        .attr("transform", "translate(80,50)");
 
 }
 
