@@ -8,7 +8,7 @@ function makeBarChart(divId, dataset, maxY){
 
 
    var w = 600; // is actually height
-    var h = 300;
+   var h = 300;
 
     //Set up stack method and pass the dataset on to it, -- stack expects a dataset matrix
     var stack = d3.layout.stack();
@@ -41,15 +41,16 @@ function makeBarChart(divId, dataset, maxY){
 
 
     //Set up scales
-    var xScale = d3.scale.ordinal()
+    var xScale = d3.scale.ordinal()// X scale, the thicknesss of the bars
         .domain(d3.range(dataset[0].length))
-        .rangeRoundBands([0, h-100], 0.1);  // interval, padding, outer padding
+        .rangeRoundBands([0, 300-100], 0.1);  // interval, padding, outer padding
 
     var yScale = d3.scale.linear()
         .domain([0,
             d3.max(dataset, function(d) {
                 return d3.max(d, function(d) {
-                    return d.y0 + d.y;
+                    //return d.y0 + d.y;
+                    return 100;
                 });
             })
         ])
@@ -71,7 +72,9 @@ function makeBarChart(divId, dataset, maxY){
             return yScale(d.y0); // the bottom of the bars (x, but rotated)
         })
         .attr("height", xScale.rangeBand()) // this is the width of the bars
-        .attr("transform", "translate(80,50)");
+        .attr("transform", "translate(80,50)")
+        .attr("stroke", "white")
+        .attr("stroke-width", "1px");
 
     console.log(rects);
 
@@ -101,7 +104,7 @@ function makeBarChart(divId, dataset, maxY){
         //.domain([0, d3.max(dataset, function(d) { return d.y0 + d.y; })])
         //.range([0, h]);
         //.domain([0,100])
-        .domain([0, maxY])
+        .domain([0, 100])
         .range([0,h]);
 
     var xAxis = d3.svg.axis()
@@ -151,9 +154,9 @@ function makeBarChart(divId, dataset, maxY){
     var legendXLabel = canvas.append("text")
         .attr("class", "legendLabel")
         .attr("text-anchor", "center")
-        .attr("x", 432)
-        .attr("y", 270)
-        .text ("I am the X label");
+        .attr("x", 230)
+        .attr("y", 280)
+        .text ("Fatty Acid Content as %");
 }
 
 
