@@ -34,7 +34,7 @@ function makeBarChart(divId, dataset, maxY){
         .data(dataset)
         .enter()
         .append("g")
-        .attr("transform", "translate(0,-10)") // GLOBAL translate
+        .attr("transform", "translate(50,-10)") // GLOBAL translate
         .style("fill", function(d, i) {
             return colors(i);
         });
@@ -75,11 +75,13 @@ function makeBarChart(divId, dataset, maxY){
 
     console.log(rects);
 
+    //Define Y axis
+
     var yScaleLabels = d3.scale.ordinal()
         .domain(["A", "B", "C", "D", "E"])
         .rangeRoundBands([100, h], .1);
 
-    //Define Y axis
+
     var yAxis = d3.svg.axis()
         .scale(yScaleLabels)
         .orient("left")
@@ -88,8 +90,8 @@ function makeBarChart(divId, dataset, maxY){
 
     //Create Y axis
         canvas.append("g")
-            .attr("class", "axis")
-            .attr("transform", "translate(80,-60)")
+            .attr("class", "axisDrawY")
+            .attr("transform", "translate(130,-60)")
             .call(yAxis);
 
 
@@ -108,8 +110,40 @@ function makeBarChart(divId, dataset, maxY){
         .ticks(10);
 
     canvas.append("g")
-        .attr("transform", "translate(80,250)")
+        .attr("transform", "translate(130,250)")
+        .attr("class", "axisDrawX")
         .call(xAxis);
+
+
+  // legend
+
+    var fillColoursData = ["#facb6c", "#b1c6c9", "#bfc8a9", "#d79b9b", "#d7b8ca", "#f0a481", "#97c3a1"];
+
+    var legendGroup = canvas.append("g");
+    var legendSquares = legendGroup.selectAll("squares")
+        .data(fillColoursData)
+        .enter()
+        .append("rect")
+        .attr("x", 500)
+        .attr("y", function(d , i){ return (i * 20) + 80})
+        .attr("width", 10)
+        .attr("height", 10)
+        .attr("fill", function(d){return (d)});
+
+    var labelData = ["", "Lauric",  "Linoleic", "Myristic", "Ricinoleic", "Oleic", "Palmitic", "Stearic"];
+    var textLegendGroup = legendGroup.selectAll("textLabelsLegend")
+        .data(labelData)
+        .enter()
+        .append("text")
+        .attr("class", "legendLabel")
+        .attr("text-anchor", "center")
+        .attr("x", 525)
+        .attr("y", function(d , i){ return ((i * 20) + 70)})
+        .text (function(d){return (d) });
+
+    canvas.append("rect")
+
+
 }
 
 
