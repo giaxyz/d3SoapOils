@@ -78,7 +78,7 @@ function makeBarChart(divId, dataset, maxY){
     //Define Y axis
 
     var yScaleLabels = d3.scale.ordinal()
-        .domain(["A", "B", "C", "D", "E"])
+        .domain(["Bar Hardness", "Cleansing Intensity", "Fluffy Lather", "Conditioning", "Lather Stability"])
         .rangeRoundBands([100, h], .1);
 
 
@@ -107,10 +107,10 @@ function makeBarChart(divId, dataset, maxY){
     var xAxis = d3.svg.axis()
         .scale(xScale)
         .orient("bottom")
-        .ticks(10);
+        .ticks(3);
 
     canvas.append("g")
-        .attr("transform", "translate(130,250)")
+        .attr("transform", "translate(130,240)")
         .attr("class", "axisDrawX")
         .call(xAxis);
 
@@ -141,9 +141,19 @@ function makeBarChart(divId, dataset, maxY){
         .attr("y", function(d , i){ return ((i * 20) + 70)})
         .text (function(d){return (d) });
 
-    canvas.append("rect")
+    var legendTitleLabel = canvas.append("text")
+        .attr("class", "legendLabel")
+        .attr("text-anchor", "center")
+        .attr("x", 400)
+        .attr("y", 60)
+        .text ("Colour Indicates Fatty Acid Type");
 
-
+    var legendXLabel = canvas.append("text")
+        .attr("class", "legendLabel")
+        .attr("text-anchor", "center")
+        .attr("x", 432)
+        .attr("y", 270)
+        .text ("I am the X label");
 }
 
 
