@@ -159,16 +159,3 @@ function makeBarChart(divId, dataset, maxY){
         .text ("Fatty Acid Content as %");
 }
 
-
-function buildGraph(divId) {
-
-    var svgContainer = d3.select(divId)
-        .append("svg");
-
-    var circle = svgContainer.append("circle")
-        .attr("cx", 100)
-        .attr("cy", 100)
-        .attr("r", 50)
-        .attr("fill", "blue");
-}
-
