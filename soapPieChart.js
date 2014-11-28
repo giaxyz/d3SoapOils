@@ -3,13 +3,13 @@
  */
 
 
-function buildSoapPieChart(divId){
+function buildSoapPieChart(divId, data){
 
-    var data = [20,40,60,180,80];
+   /*var data = [20,40,60,180,80];*/
     var radius = 100;
     var canvasWidth = 600;
     var color = d3.scale.ordinal()
-        .range(["red","blue","orange","yellow","purple"]);
+        .range(["#facb6c", "#b1c6c9", "#bfc8a9", "#d79b9b", "#d7b8ca", "#f0a481", "#97c3a1"]);
 
     var canvasHeight = 270;
     var canvas = d3.select(divId).append("svg")
